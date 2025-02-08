@@ -747,4 +747,106 @@ body.rue-page:after {
 
 .glitch-text:hover {
   cursor: none; /* Mouse disappears when hovering over the text */
+}/* 📲 Mobile Optimization */
+@media screen and (max-width: 768px) {
+  /* Adjust Body & Content Layout */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .header-container h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Navigation */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  /* Forum Container */
+  .forum-container {
+    flex-direction: column;
+    width: 95%;
+    margin-top: 80px;
+  }
+
+  /* Make Main Content Full Width */
+  .forum-main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Sidebars Adjustments */
+  .unanswered-threads-sidebar {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+  }
+
+  /* Adjust Search Bar */
+  .search-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  #search-input {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  #search-button {
+    width: auto;
+  }
+
+  /* Thread & Comments Adjustments */
+  .forum-thread, .comment-section {
+    width: 95%;
+    max-width: 600px;
+    padding: 15px;
+  }
+
+  /* Make Comments Stack Vertically */
+  .comment-row {
+    flex-direction: column;
+  }
+
+  .expanded-comment {
+    width: 100%;
+  }
+
+  /* Fix Glitch Text Layout for Mobile */
+  .infinite-text {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Fix Search Results Positioning */
+  .search-results {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+  }
 }
