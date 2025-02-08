@@ -744,20 +744,19 @@ body.rue-page:after {
   font-family: 'Courier New', monospace;
   overflow-x: hidden;
 }
-  /* 📲 MOBILE OPTIMIZATION */
+ /* 📲 MOBILE OPTIMIZATION */
 @media screen and (max-width: 768px) {
 
-  /* Ensure body is properly aligned */
+  /* 🔹 Ensure body uses full width */
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     width: 100%;
     overflow-x: hidden;
   }
 
-  /* 🔹 Fix Header */
+  /* 🔹 Make Header Responsive */
   .header-container {
     flex-direction: column;
     text-align: center;
@@ -770,7 +769,7 @@ body.rue-page:after {
     margin: 5px 0;
   }
 
-  /* 🔹 Fix Navigation Links */
+  /* 🔹 Fix Navigation */
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -784,7 +783,7 @@ body.rue-page:after {
     font-size: 14px;
   }
 
-  /* 🔹 Fix Search Box */
+  /* 🔹 Make Search Bar Mobile-Friendly */
   .search-container {
     width: 95%;
     text-align: center;
@@ -803,30 +802,11 @@ body.rue-page:after {
     padding: 8px;
   }
 
-  /* 🔹 Adjust Login Box */
-  .login-container {
-    width: 90%;
-    max-width: 350px;
-    padding: 15px;
-  }
-
-  /* 🔹 Adjust User List Dropdown */
-  .lost-users-box {
-    width: 90%;
-    max-width: 350px;
-    padding: 15px;
-  }
-
-  .lost-users-box li {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  /* 🔹 Fix Forum Content */
+  /* 🔹 Fix Forum Layout */
   .forum-container {
     flex-direction: column;
     width: 95%;
-    margin-top: 100px;
+    margin-top: 80px; /* Adjust space for header */
   }
 
   .forum-main-content {
@@ -834,11 +814,18 @@ body.rue-page:after {
     text-align: center;
   }
 
-  /* 🔹 Fix Sidebar Issues */
+  /* 🔹 Adjust Sidebars (Make them Full Width) */
   .unanswered-threads-sidebar {
     width: 100%;
     margin-top: 20px;
     position: relative;
+  }
+
+  /* 🔹 Fix Login Popup */
+  .login-container {
+    width: 90%;
+    max-width: 350px;
+    padding: 15px;
   }
 
   /* 🔹 Adjust Log Buttons */
@@ -853,5 +840,17 @@ body.rue-page:after {
     width: 95%;
     max-width: 600px;
     padding: 15px;
+  }
+
+  /* 🔹 Fix Dropdown Menus */
+  .lost-users-box {
+    width: 90%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .lost-users-box li {
+    font-size: 14px;
+    padding: 8px;
   }
 }
