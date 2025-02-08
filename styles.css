@@ -744,109 +744,114 @@ body.rue-page:after {
   font-family: 'Courier New', monospace;
   overflow-x: hidden;
 }
-
-.glitch-text:hover {
-  cursor: none; /* Mouse disappears when hovering over the text */
-}/* 📲 Mobile Optimization */
+  /* 📲 MOBILE OPTIMIZATION */
 @media screen and (max-width: 768px) {
-  /* Adjust Body & Content Layout */
+
+  /* Ensure body is properly aligned */
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: auto;
+    width: 100%;
     overflow-x: hidden;
   }
 
-  /* Header */
+  /* 🔹 Fix Header */
   .header-container {
     flex-direction: column;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     width: 100%;
   }
 
   .header-container h1 {
     font-size: 1.5rem;
+    margin: 5px 0;
   }
 
-  /* Navigation */
+  /* 🔹 Fix Navigation Links */
   .nav-links {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
   }
 
   .nav-links a {
     display: block;
-    margin: 5px 0;
+    margin: 4px 0;
+    font-size: 14px;
   }
 
-  /* Forum Container */
-  .forum-container {
-    flex-direction: column;
-    width: 95%;
-    margin-top: 80px;
-  }
-
-  /* Make Main Content Full Width */
-  .forum-main-content {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  /* Sidebars Adjustments */
-  .unanswered-threads-sidebar {
-    width: 100%;
-    position: relative;
-    margin-top: 20px;
-  }
-
-  /* Adjust Search Bar */
+  /* 🔹 Fix Search Box */
   .search-container {
-    width: 100%;
+    width: 95%;
     text-align: center;
   }
 
   #search-input {
     width: 90%;
-    max-width: 300px;
+    max-width: 280px;
+    padding: 8px;
+    font-size: 14px;
   }
 
   #search-button {
     width: auto;
+    font-size: 14px;
+    padding: 8px;
   }
 
-  /* Thread & Comments Adjustments */
+  /* 🔹 Adjust Login Box */
+  .login-container {
+    width: 90%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  /* 🔹 Adjust User List Dropdown */
+  .lost-users-box {
+    width: 90%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .lost-users-box li {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* 🔹 Fix Forum Content */
+  .forum-container {
+    flex-direction: column;
+    width: 95%;
+    margin-top: 100px;
+  }
+
+  .forum-main-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 🔹 Fix Sidebar Issues */
+  .unanswered-threads-sidebar {
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  /* 🔹 Adjust Log Buttons */
+  .view-more, .view-logs {
+    width: 80%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* 🔹 Fix Spacing Between Elements */
   .forum-thread, .comment-section {
     width: 95%;
     max-width: 600px;
     padding: 15px;
-  }
-
-  /* Make Comments Stack Vertically */
-  .comment-row {
-    flex-direction: column;
-  }
-
-  .expanded-comment {
-    width: 100%;
-  }
-
-  /* Fix Glitch Text Layout for Mobile */
-  .infinite-text {
-    font-size: 18px;
-    text-align: center;
-    padding: 20px;
-  }
-
-  /* Fix Search Results Positioning */
-  .search-results {
-    position: relative;
-    width: 90%;
-    max-width: 400px;
-    margin: auto;
   }
 }
