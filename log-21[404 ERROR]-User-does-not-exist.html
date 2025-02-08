@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 ERROR - User Does Not Exist</title>
+  <meta name="description" content="A fragmented message from an unknown user.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts.js"></script>
+  <style>
+    /* Dark, Distorted Background */
+    body {
+      background: #0a0a0a url('assets/static-dark.gif') repeat;
+      color: #d1d1d1;
+      font-family: 'Share Tech Mono', monospace;
+      animation: glitch-background 3s infinite linear alternate;
+    }
+    @keyframes glitch-background {
+      0% { background-position: 0 0; }
+      50% { background-position: 10px -10px; }
+      100% { background-position: -10px 10px; }
+    }
+
+    /* Header Style */
+    .header-container {
+      text-align: center;
+      padding: 20px;
+      background: rgba(20, 20, 20, 0.9);
+      border-bottom: 2px solid red;
+    }
+
+    /* Redacted Text Flash Effect */
+    .redacted {
+      background: black;
+      color: black;
+      padding: 2px 6px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .redacted:hover {
+      color: white;
+      transition: color 0.1s ease-in-out;
+      animation: text-flicker 0.3s infinite alternate;
+    }
+    @keyframes text-flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Hidden Data Recovery */
+    .recover-button {
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: block;
+      margin: 20px auto;
+    }
+    .recover-button:hover {
+      background: #900000;
+    }
+    .glitch-message {
+      display: none;
+      font-style: italic;
+      color: #ff0000;
+      text-align: center;
+      animation: glitch-text 0.5s infinite alternate;
+    }
+    @keyframes glitch-text {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Error Message for Thread Removal */
+    .error-message {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 50px;
+      color: #ff4444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 📡 Transmission Header -->
+  <div class="header-container">
+    <h1>🔍 Fragmented Message – Transmission Unstable</h1>
+    <p><strong>USER:</strong> [UNKNOWN] | <strong>LAST SEEN:</strong> [???]</p>
+  </div>
+
+  <!-- 📝 Main Message -->
+  <div class="forum-thread">
+    <p>"If you're reading this, then it’s already started."</p>
+    <p>"I don’t know how much time I have left."</p>
+    <p><span class="redacted">[REDACTED]</span>, I never wanted it to end like this. I thought I was following the path, the same as you, but I was wrong. Or maybe I was always meant to go first."</p>
+    <p>"I can still feel myself, but it’s changing. Something else is inside me now. Or maybe <span class="redacted">[I’m the one slipping away]</span>."</p>
+    <p>"I try to hold onto what I was, but it’s unraveling. My memories are shifting—some feel like echoes, others feel like they were never mine to begin with."</p>
+    <p>"I remember <span class="redacted">[the road]</span>. I remember <span class="redacted">[the call]</span>. I remember <span class="redacted">[stepping forward]</span>. But I don’t remember <span class="redacted">[who I was before that moment]</span>."</p>
+    <p>"I keep thinking about <span class="redacted">[you]</span>. About <span class="redacted">[what we lost]</span>. About <span class="redacted">[the things we should have said]</span> when we still had the chance."</p>
+    <p>"I’m sorry. I wanted to find <span class="redacted">[you]</span>, not leave <span class="redacted">[you]</span> behind."</p>
+    <p>"I see it more clearly now. The ritual was never about <span class="redacted">[crossing over]</span>. It was about <span class="redacted">[becoming]</span>."</p>
+    <p>"I think I understand now why <span class="redacted">[no one comes back]</span>."</p>
+    <p>"Or maybe they do, just... not as <span class="redacted">[themselves]</span>."</p>
+    <p>"I don’t know what’s waiting for me at the end of this, but <span class="redacted">[I can’t stop it]</span>."</p>
+    <p>"And <span class="redacted">[I don’t think I want to]</span>."</p>
+    <p><strong>[DATA CONNECTION LOST]</strong></p>
+</div>
+  </div>
+
+  <!-- 🔥 Attempt to Recover Data -->
+  <button class="recover-button" onclick="recoverData()">Attempt to Recover Data</button>
+  <p id="glitch-message" class="glitch-message">DONT LET HER GO! DONT LET HER GO!.</p>
+
+  <!-- 🕵️ Hidden Clues & Page Effects -->
+  <script>
+    function recoverData() {
+      document.getElementById("glitch-message").style.display = "block";
+    }
+
+    // Simulate the thread disappearing on refresh
+    document.addEventListener("DOMContentLoaded", function() {
+      if (sessionStorage.getItem("threadHidden") === "true") {
+        document.body.innerHTML = `
+          <div class="header-container">
+            <h1>🚨 [ERROR: THREAD NOT FOUND]</h1>
+            <p class="error-message">"The requested post no longer exists."</p>
+            <a href="index.html" class="back-button">Back to Home</a>
+          </div>
+        `;
+      } else {
+        sessionStorage.setItem("threadHidden", "true");
+      }
+    });
+
+    // Hidden comment appears later
+    setTimeout(() => {
+      let comment = document.createElement("div");
+      comment.innerHTML = `
+        <div class="forum-comment">
+          <p><strong>LostTransmission:</strong> "She said too much."</p>
+        </div>
+      `;
+      document.body.appendChild(comment);
+    }, 10000); // Appears after 10 seconds
+  </script>
+
+  <a href="index.html" class="back-button">Back to Home</a>
+
+</body>
+</html>

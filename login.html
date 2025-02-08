@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Lost/Thread Forum</title>
+
+  <!-- Styles and Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Static Noise Overlay -->
+  <div id="static-overlay"></div>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="login-form" onsubmit="return handleLogin(event)">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required placeholder="Enter your username">
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required placeholder="Enter your password">
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p class="message">Don't have an account? <a href="register.html">Register here</a></p>
+    <a href="index.html" class="back-button">Back to Forum</a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Fake account credentials
+    const accounts = {
+      "Vesper": "Hawthorne",
+      "Bastion": "Rebecca" // Added new account
+    };
+
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Check if entered credentials match any of the fake accounts
+      if (accounts[username] && accounts[username] === password) {
+        alert("Login successful!");
+        // Redirect to the account home page
+        window.location.href = "account.html"; // Change to the desired page after login
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Lost/Thread Forum</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Static Noise Overlay -->
+    <div id="static-overlay"></div>
+
+    <!-- Account Dashboard -->
+    <div class="account-container">
+        <h1>Welcome, <span id="username-display"></span></h1>
+
+        <div class="account-options">
+            <a href="dms.html">📨 Direct Messages</a>
+            <a href="settings.html">⚙️ Account Settings</a>
+            <a href="index.html">🏠 Back to Forum</a>
+            <button id="logout-button">🚪 Log Out</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the logged-in username from localStorage
+            const loggedInUser = localStorage.getItem("loggedInUser");
+
+            if (!loggedInUser) {
+                window.location.href = "login.html"; // Redirect if not logged in
+            } else {
+                document.getElementById("username-display").textContent = loggedInUser;
+            }
+
+            // Logout Function
+            document.getElementById("logout-button").addEventListener("click", function() {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

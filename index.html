@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost/Thread Forum</title>
+  <meta name="description" content="A mysterious forum for Lost/Thread discussions">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Static Noise Overlay -->
+  <div id="static-overlay"></div>
+
+  <!-- Forum Header -->
+  <div class="header-container">
+    <nav class="navigation-bar">
+      <ul>
+        <li><a href="new-posts.html">New Posts</a></li>
+        <li><a href="archives.html">Archives</a></li>
+        <li><a href="rules.html">Forum Rules</a></li>
+      </ul>
+    </nav>
+    <h1>Lost/Thread Forum</h1>
+    <a href="login.html" class="login-button">Login</a>
+  </div>
+  
+  <!-- 🧐 Search Section (Fixed & Improved) -->
+  <div class="search-container">
+    <p>"Not all threads are meant to be followed."</p>
+    <input type="text" id="search-input" placeholder="Search logs, threads, users..." autocomplete="off" />
+    <button id="search-button">Search</button>
+    <div id="search-results" class="search-results"></div> <!-- Search results appear here -->
+  </div>
+
+  <!-- 📝 RECENT LOGS SECTION -->
+  <div class="forum-container">
+    <div class="forum-main-content">
+      <div class="forum-category">
+        <h2>Recent Logs</h2>
+        <ul class="thread-list">
+          <li><a href="log-001-crossing-over-page1">📂 Log #001 - "Has Anyone Actually Crossed Over?"</a> <span class="meta">Bastion • Feb 6, 2025</span></li>
+          <li><a href="log-002-mannequins-move.html">📂 Log #002 - "The Mannequins Move"</a> <span class="meta">TrainStationGhost • Feb 5, 2025</span></li>
+          <li><a href="log-003-rituals-that-work.html">📂 Log #003 - "Rituals That Work?"</a> <span class="meta">HabdoffInitiate • Feb 4, 2025</span></li>
+          <li><a href="log-004-exit-1313-gone-again.html">📂 Log #004 - "Exit 1313 – It’s Gone Again"</a> <span class="meta">HighwayExit1313 • Feb 3, 2025</span></li>
+          <li><a href="log-005-handoff-ritual-page1.html">📂 Log #005 - "Has Anyone Heard of the Handoff Ritual?"</a> <span class="meta">Wonderkid17 • Feb 2, 2025</span></li>
+        </ul>
+      </div>
+
+      <!-- "View All Logs" Button -->
+      <div class="view-more">
+        <a href="logs.html" class="view-logs">📂 View More Logs</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🏴 FLOATING LEFT SIDEBAR - LOST USERS -->
+  <div class="unanswered-threads-sidebar left-sidebar">
+    <div class="forum-category">
+      <h2>Lost Users</h2>
+      <ul class="cast-list">
+        <li class="glitch-text"><a href="vesper.html">Vesper</a></li>
+        <li><a href="bastion.html">Bastion</a></li>
+        <li><a href="wonderkid17.html">Wonderkid17</a></li>
+        <li><a href="lookinglady.html">Looking-Lady</a></li>
+        <li><a href="threadkeeper77.html">Threadkeeper77</a></li>
+        <li><a href="sacrificedeclined.html">SacrificeDeclined</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ❔ FLOATING RIGHT SIDEBAR - UNANSWERED THREADS -->
+  <div class="unanswered-threads-sidebar right-sidebar">
+    <div class="forum-category">
+      <h2>Unanswered Threads</h2>
+      <ul class="thread-list">
+        <li class="glitch-text"><a href="log-019-the-vanishing-page1.html">"If I don’t post again, you’ll know why."</a> <span class="meta">LastPostBeforeGone • Jan 28, 2025</span></li>
+        <li><a href="log-020-exit-1313-page1.html">"Where did Exit 1313 go?"</a> <span class="meta">HighwayExit1313 • Jan 26, 2025</span></li>
+        <li><a href="log-018-deleted-user-messages.html">"Erased messages still appearing?"</a> <span class="meta">Threadkeeper77 • Jan 20, 2025</span></li>
+      </ul>
+    </div>
+</div>
+
+  <!-- JavaScript -->
+  <script src="scripts.js"></script>
+
+</body>
+</html>

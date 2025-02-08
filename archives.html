@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost/Thread Archives</title>
+  <meta name="description" content="Archived and deleted discussions from the Lost/Thread Forum.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Static Noise Overlay -->
+  <div id="static-overlay"></div>
+
+  <!-- Forum Header -->
+  <div class="header-container">
+    <nav class="navigation-bar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="new-posts.html">New Posts</a></li>
+        <li><a href="archives.html" class="active">Archives</a></li>
+        <li><a href="rules.html">Forum Rules</a></li>
+      </ul>
+    </nav>
+    <h1>Lost/Thread Archives</h1>
+    <a href="login.html" class="login-button">Login</a>
+  </div>
+  
+  <!-- Search & Tagline -->
+  <div class="header-text">
+    <p>"Some threads unravel. Others are cut."</p>
+    <input type="text" id="archive-search" placeholder="Search the lost records..." autocomplete="off" />
+    <button id="search-button">Search</button>
+  </div>
+
+  <!-- Main Archive Content -->
+  <div class="forum-container">
+    <div class="forum-main-content">
+
+      <!-- Vanished Threads -->
+      <div class="forum-category">
+        <h2>Vanished Threads</h2>
+        <p class="meta">Discussions that disappeared without explanation.</p>
+        <ul class="thread-list">
+          <li class="glitch-text"><a href="thread.html">Thread #001 - "Does anyone remember this?"</a> <span class="meta">User Unknown • [Timestamp Corrupted]</span></li>
+          <li><a href="thread.html">Thread #002 - "Exit 1313 is NOT where we left it."</a> <span class="meta">HighwayExit1313 • Aug 3, 2024</span></li>
+          <li><a href="thread.html">Thread #003 - "We were warned, and we didn't listen."</a> <span class="meta">LostTransmission • ???</span></li>
+        </ul>
+      </div>
+
+      <!-- Recovered Logs -->
+      <div class="forum-category">
+        <h2>Recovered Logs</h2>
+        <p class="meta">Fragments of lost conversations retrieved from cache.</p>
+        <ul class="thread-list">
+          <li><a href="thread.html">"The road is real, but it only appears at night."</a> <span class="meta">DeadEndMapper • Jun 12, 2024</span></li>
+          <li><a href="thread.html">"If I post this, will you still see me?"</a> <span class="meta">Bastion • May 20, 2024</span></li>
+          <li><a href="thread.html">"Handoff Ritual: Last known steps before deletion."</a> <span class="meta">Threadkeeper77 • Apr 7, 2024</span></li>
+        </ul>
+      </div>
+
+      <!-- Deleted Posts -->
+      <div class="forum-category">
+        <h2>Deleted Posts</h2>
+        <p class="meta">Content that should not exist, yet remains.</p>
+        <ul class="thread-list">
+          <li><a href="log-21[404 ERROR]-User-does-not-exist.html">"[404 ERROR] - User does not exist."</a> <span class="meta">Unknown • ???</span></li>
+          <li><a href="thread.html">"Replying to this will get you erased."</a> <span class="meta">PeripheralWatcher • Jan 5, 2025</span></li>
+          <li><a href="thread.html">"My reflection moved before I did."</a> <span class="meta">NotMyReflection • Jul 9, 2023</span></li>
+        </ul>
+      </div>
+
+      <!-- Not Found -->
+      <div class="forum-category">
+        <h2>Not Found</h2>
+        <p class="meta">These threads were mentioned, but no evidence remains.</p>
+        <ul class="thread-list">
+          <li class="glitch-text"><a href="thread.html">"Someone deleted my post while I was writing it."</a> <span class="meta">Vanishing_Point • ???</span></li>
+          <li><a href="thread.html">"Does anyone else remember 'Whispering Static'?"</a> <span class="meta">FollowTheSignal • ???</span></li>
+          <li><a href="thread.html">"The thread is still there, but it's empty now."</a> <span class="meta">RewindToForget • ???</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="scripts.js"></script>
+
+</body>
+</html>

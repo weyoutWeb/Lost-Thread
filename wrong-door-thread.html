@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Lost/Thread Forum</title>
+
+  <!-- Styles and Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Static Noise Overlay -->
+  <div id="static-overlay"></div>
+
+  <!-- Profile Page -->
+  <div class="profile-container">
+    <h1>Welcome to Your Profile</h1>
+    <div class="profile-info">
+      <img src="assets/profile-placeholder.png" alt="Profile Picture" class="profile-picture">
+      <h2 id="welcome-message" style="display: none;">Hello, <span id="username-display"></span>!</h2>
+    </div>
+    
+    <form id="login-form" onsubmit="return handleLogin(event)">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required placeholder="Enter your username">
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required placeholder="Enter your password">
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="message">Don't have an account? <a href="register.html">Register here</a></p>
+    <a href="index.html" class="back-button">Back to Forum</a>
+  </div>

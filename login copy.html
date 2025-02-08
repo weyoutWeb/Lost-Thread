@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Lost/Thread Forum</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Static Noise Overlay -->
+    <div id="static-overlay"></div>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form" onsubmit="return handleLogin(event)">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p class="message">Don't have an account? <a href="register.html">Register here</a></p>
+        <a href="index.html" class="back-button">Back to Forum</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Hardcoded account credentials (temporary storage for now)
+        const accounts = {
+            "Vesper": "Hawthorne",
+            "Bastion": "Rebecca"
+        };
+
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (accounts[username] && accounts[username] === password) {
+                alert("Login successful!");
+
+                // Store session in localStorage
+                localStorage.setItem("loggedInUser", username);
+
+                // Redirect to account dashboard
+                window.location.href = "account.html?user=" + encodeURIComponent(username);
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+
+        // Auto-redirect if already logged in
+        document.addEventListener("DOMContentLoaded", function() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (loggedInUser) {
+                window.location.href = "account.html?user=" + encodeURIComponent(loggedInUser);
+            }
+        });
+    </script>
+</body>
+</html>
