@@ -322,4 +322,6 @@ searchInput.addEventListener("keypress", function (event) {
           }
       }, 5000);
   }
-});
+});if (query === "rue.exe") {
+    window.location.href = "/rue.exe.html"; // Make sure this file exists in the right place
+}
