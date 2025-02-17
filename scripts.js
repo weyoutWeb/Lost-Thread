@@ -44,6 +44,7 @@ const searchableItems = [
 
   // ✅ Hidden Page for Rue.exe
   { name: "Rue.exe", link: "rue.exe.html" }
+  
 ];
 
 function performSearch(event) {
@@ -323,5 +324,5 @@ searchInput.addEventListener("keypress", function (event) {
       }, 5000);
   }
 });if (query === "rue.exe") {
-    window.location.href = "/rue.exe.html"; // Make sure this file exists in the right place
+  window.location.href = "/rue.exe.html"; // Make sure this file exists in the right place
 }
