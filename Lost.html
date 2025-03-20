@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Transmissions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: #0a0a0a url('assets/static-dark.gif') repeat;
+            color: #b3b3b3;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Fading Static Overlay */
+        #static-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/static-glitch.gif');
+            opacity: 0.08;
+            z-index: -1;
+        }
+
+        /* Page Header */
+        h1 {
+            font-size: 2.5em;
+            color: #ff4444;
+            text-shadow: 0 0 20px rgba(255, 68, 68, 0.8);
+            animation: glitch-effect 2s infinite alternate;
+        }
+
+        @keyframes glitch-effect {
+            0% { text-shadow: 2px 2px 5px #ff4444; }
+            50% { text-shadow: -2px -2px 5px #ff2222; }
+            100% { text-shadow: 2px -2px 5px #ff4444; }
+        }
+
+        /* Transmission List */
+        .transmissions {
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: left;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #ff4444;
+            border-right: 3px solid #ff4444;
+            box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+        }
+
+        .transmissions h2 {
+            color: #ff4444;
+        }
+
+        .transmissions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transmissions ul li {
+            padding: 10px;
+            font-size: 1.1em;
+            border-bottom: 1px solid #333;
+            position: relative;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .transmissions ul li a {
+            color: #ff4444;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .transmissions ul li:hover {
+            background: #222;
+        }
+
+        .transmissions ul li a:hover {
+            color: #ff2222;
+        }
+
+        /* Glitching Effect for Future Messages */
+        .future-message {
+            color: #777;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            animation: flicker 3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Hidden Message Glitch */
+        .hidden-message {
+            display: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff2222;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.9);
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: glitch-text 0.8s infinite alternate;
+        }
+
+        @keyframes glitch-text {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Static Overlay -->
+    <div id="static-overlay"></div>
+
+    <!-- Page Header -->
+    <h1>Lost Transmissions</h1>
+    <p>Fragments of messages, drifting between past and future. Some have been received. Others… are waiting.</p>
+
+    <!-- Transmission List -->
+    <div class="transmissions">
+        <h2>Recovered Messages</h2>
+        <ul>
+            <li><a href="poem-fatesgrip.html">Fate’s Grip</a></li>
+            <li><a href="poem-forgiveus.html">Forgive Us</a></li>
+            <li><a href="poem-letgo.html">Let Go</a></li>
+            <li><a href="poem-sorrowbound.html">Sorrowbound</a></li>
+            <li><a href="poem-staticwhispers.html">Static Whispers</a></li>
+            <li><a href="poem-unshackled.html">Unshackled</a></li>
+        </ul>
+    </div>
+    <div class="transmissions">
+        <h2>Unreadable Signals</h2>
+        <ul>
+            <li class="future-message">--- [D██A██T██A E█X█P█U█N█G█E█D] ---</li>
+            <li class="future-message">S██ignal █Un█availabl█E</li>
+            <li class="future-message">Aw█a█i██ti██n██g Ret██riev██al...</li>
+            <li class="future-message">██████j███a██m██e█s</li>
+            <li class="future-message">███t██████e███s███s███a</li>
+            <li class="future-message">█n██i█████a</li>
+            <li class="future-message">██e██t██h██a█n</li>
+            <li class="future-message">█████r███a██f█████a</li>
+            <li class="future-message">███m██a█l██i██k</li>
+            <li class="future-message">███████m████a██r██i██s██o██l</li>
+            <li class="future-message">--- [d███a███t█a e██x█p██u██n█g█ed] ---</li>
+        </ul>
+
+    <!-- Glitching Hidden Message -->
+    <div class="hidden-message" id="hidden-message">
+        <p>"Fo███████ive th███████m for they██████████████."</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const hiddenMessage = document.getElementById("hidden-message");
+
+            // Flicker Effect for Hidden Message
+            setTimeout(() => {
+                hiddenMessage.style.display = "block";
+            }, Math.random() * (15000 - 7000) + 7000); // Shows message after 7-15s
+        });
+    </script>
+
+</body>
+</html>

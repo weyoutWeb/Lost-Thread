@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>████████</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: #0a0a0a;
+            color: #b3b3b3;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Black Hole */
+        .blackhole {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 0px;
+            height: 0px;
+            background: radial-gradient(circle, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.3) 80%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            display: none;
+            z-index: 5;
+            transition: width 6s ease-in-out, height 6s ease-in-out;
+        }
+
+        /* Dive Deeper Button */
+        .dive-button {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-family: 'Share Tech Mono', monospace;
+            cursor: pointer;
+            border-radius: 8px;
+            text-decoration: none;
+            display: none;
+            z-index: 6;
+            animation: pulse 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        .password-container {
+            margin-top: 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        input[type="password"] {
+            background: black;
+            border: none;
+            color: #ff4444;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            outline: none;
+            width: 200px;
+        }
+
+        button {
+            background: #ff4444;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+        .hidden-container {
+            max-width: 700px;
+            margin: auto;
+            opacity: 0;
+            filter: blur(10px);
+            text-align: left;
+            transition: opacity 3s ease-in-out, filter 3s ease-in-out;
+            display: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Orbiting Text */
+        .orbiting-text {
+            display: block;
+            position: absolute;
+            font-size: 1.2em;
+            transition: transform 10s linear, opacity 10s ease-out;
+        }
+
+        /* Glitching Text */
+        .glitch-text {
+            display: inline-block;
+            animation: glitch 3s infinite alternate;
+            color: #ff4444;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px #220606; transform: translateX(0); }
+            50% { text-shadow: -2px -2px 5px #0c0909; transform: translateX(-2px); }
+            100% { text-shadow: 2px -2px 5px #171313; transform: translateX(2px); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="blackhole" id="blackhole"></div>
+
+    <a href="deeper.html" class="dive-button" id="diveButton">Dive Deeper</a>
+
+    <div class="password-container">
+        <p>Enter Access Key:</p>
+        <input type="password" id="password" placeholder="████████">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div class="hidden-container" id="poemContainer">
+        <h2 class="glitch-text orbiting-text">The Hollow ██████</h2>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const passwordInput = document.getElementById("password").value.trim().toLowerCase();
+            const correctPassword = "staticwhispers"; 
+
+            if (passwordInput === correctPassword) {
+                document.querySelector(".password-container").style.display = "none";
+                const poemContainer = document.getElementById("poemContainer");
+                poemContainer.style.display = "block";
+
+                setTimeout(() => {
+                    poemContainer.style.opacity = "1";
+                    poemContainer.style.filter = "blur(0px)";
+                }, 3000);
+
+                setTimeout(() => {
+                    document.getElementById("blackhole").style.display = "block";
+                    document.getElementById("blackhole").style.width = "100vw";
+                    document.getElementById("blackhole").style.height = "100vh";
+                }, 10000);
+
+                // Pull Text into Black Hole
+                setTimeout(() => {
+                    let texts = document.querySelectorAll(".orbiting-text");
+                    texts.forEach((text, index) => {
+                        setTimeout(() => {
+                            text.style.transform = "translate(-50%, -50%) scale(0)"; 
+                            text.style.opacity = "0";
+                        }, index * 500);
+                    });
+                }, 12000);
+
+                // Fade Entire Screen to Black
+                setTimeout(() => {
+                    document.body.style.background = "black";
+                    document.body.style.transition = "background 3s ease-in-out";
+                }, 14000);
+
+                // Reveal Dive Deeper Button
+                setTimeout(() => {
+                    document.getElementById("diveButton").style.display = "block";
+                }, 15000);
+
+            } else {
+                alert("Access Denied.");
+            }
+        }
+    </script>
+
+</body>
+</html>

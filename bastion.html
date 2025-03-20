@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bastion - Lost/Thread</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="user-script.js"></script> <!-- Handles effects & interactions -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        /* General Page Styling */
+        body {
+            background: #0a0a0a url('assets/static-dark.gif') repeat;
+            color: #d1d1d1;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Glitched Static Overlay */
+        #static-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/static-glitch.gif');
+            opacity: 0.07;
+            z-index: -1;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            width: 90%;
+            max-width: 700px;
+            padding: 30px;
+            border-bottom: 2px solid #ff4444;
+            background: rgba(20, 20, 20, 0.9);
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .profile-container h1 {
+            font-size: 2.5em;
+            color: #ff4444;
+            text-shadow: 0 0 15px rgba(255, 99, 71, 0.9);
+            animation: glitch-effect 2s infinite alternate;
+            margin-bottom: 5px;
+        }
+
+        @keyframes glitch-effect {
+            0% { text-shadow: 2px 2px 5px #ff4444; }
+            50% { text-shadow: -2px -2px 5px #ff2222; }
+            100% { text-shadow: 2px -2px 5px #ff4444; }
+        }
+
+        .meta-info {
+            font-size: 1.1em;
+            color: #bbb;
+        }
+
+        /* Centered User Bio */
+        .profile-bio, .profile-posts {
+            width: 90%;
+            max-width: 700px;
+            padding: 20px;
+            background: #222;
+            text-align: left;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .profile-bio h2, .profile-posts h2 {
+            color: #ff4444;
+            margin-bottom: 10px;
+        }
+
+        /* User Posts */
+        .profile-posts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-posts ul li {
+            padding: 12px;
+            border-bottom: 1px solid #333;
+            transition: background 0.2s;
+        }
+
+        .profile-posts ul li:hover {
+            background: #333;
+        }
+
+        .profile-posts ul li a {
+            color: #ff4444;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .profile-posts ul li a:hover {
+            color: #ff2222;
+        }
+
+        /* Hidden Glitch Message */
+        .hidden-message {
+            display: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff2222;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.9);
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: glitch-text 0.8s infinite alternate;
+        }
+
+        @keyframes glitch-text {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Responsive Fixes */
+        @media screen and (max-width: 768px) {
+            .profile-container h1 {
+                font-size: 2em;
+            }
+            .profile-bio, .profile-posts {
+                width: 95%;
+            }
+        }
+
+    </style>
+</head>
+<body class="user-profile">
+
+    <!-- Glitched Static Overlay -->
+    <div id="static-overlay"></div>
+
+    <!-- Profile Header -->
+    <div class="profile-container">
+        <h1 class="glitch-text" id="glitchTitle">Bastion</h1>
+        <p class="meta-info">Joined: <span id="join-date">April 17, 2022</span> | Last Seen: <span id="last-seen">Active</span></p>
+    </div>
+
+    <!-- User Bio -->
+    <div class="profile-bio">
+        <h2>Bio</h2>
+        <p id="user-bio">
+            "Truth isn't just hidden—it's rewritten.  
+            I've been watching, tracing the lines others ignore.  
+            If you've made it this far, you're already part of the pattern.  
+            Don't ask me how to leave. Ask yourself why you stayed."
+        </p>
+    </div>
+
+    <!-- User's Posts -->
+    <div class="profile-posts">
+        <h2>Logs & Threads</h2>
+        <ul id="user-posts">
+            <li><a href="#">"Has anyone actually crossed over?"</a></li>
+            <li><a href="#">"I think I found a way in, but the cost is too high."</a></li>
+            <li><a href="#">"They keep erasing our posts—pay attention to what's missing."</a></li>
+        </ul>
+    </div>
+
+    <!-- Glitching Hidden Message -->
+    <div class="hidden-message" id="hidden-message">
+        <p>"You're asking the wrong questions."</p>
+    </div>
+
+    <!-- JavaScript for Effects -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const username = document.getElementById("glitchTitle");
+            const hiddenMessage = document.getElementById("hidden-message");
+
+            // Flicker Effect for Hidden Message
+            setTimeout(() => {
+                hiddenMessage.style.display = "block";
+            }, Math.random() * (10000 - 5000) + 5000); // Shows message after 5-10s
+
+            // Glitch Effect for Username
+            function glitchUsername() {
+                const originalText = "Bastion";
+                const glitchChars = ["#", "@", "%", "&", "?", "!", "~", "╳", "∆", "¤", "§"];
+                let glitchedText = originalText.split("");
+
+                for (let i = 0; i < glitchedText.length; i++) {
+                    if (Math.random() > 0.7) {
+                        glitchedText[i] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                    }
+                }
+
+                username.innerText = glitchedText.join("");
+
+                setTimeout(() => {
+                    username.innerText = originalText;
+                }, 200);
+            }
+
+            setInterval(glitchUsername, Math.random() * (4000 - 2000) + 2000); // Random glitch effect
+        });
+    </script>
+
+</body>
+</html>

@@ -325,4 +325,77 @@ searchInput.addEventListener("keypress", function (event) {
   }
 });if (query === "rue.exe") {
   window.location.href = "/rue.exe.html"; // Make sure this file exists in the right place
-}
+}document.addEventListener("DOMContentLoaded", function () {
+    console.log("User profile script loaded.");
+
+    // Simulating 'glitched' last seen timestamps
+    const lastSeenElement = document.getElementById("last-seen");
+    const lastSeenGlitches = [
+        "2 days ago",
+        "Last month",
+        "Unknown",
+        "Never",
+        "Loading..."
+    ];
+
+    let currentIndex = 0;
+    setInterval(() => {
+        lastSeenElement.textContent = lastSeenGlitches[currentIndex];
+        currentIndex = (currentIndex + 1) % lastSeenGlitches.length;
+    }, 5000);
+
+    // Reveal hidden message when user hovers over bio
+    document.getElementById("user-bio").addEventListener("mouseover", function () {
+        document.getElementById("hidden-message").style.display = "block";
+    });
+});document.addEventListener("DOMContentLoaded", function() {
+    const glitchElements = document.querySelectorAll(".glitch-effect");
+
+    function randomGlitchToggle() {
+        glitchElements.forEach(el => {
+            if (Math.random() > 0.5) {
+                el.classList.add("glitch-effect");
+            } else {
+                el.classList.remove("glitch-effect");
+            }
+        });
+    }
+
+    setInterval(randomGlitchToggle, Math.random() * (5000 - 2000) + 2000); // Every 2-5 seconds
+});
+setTimeout(() => {
+    let comment = document.createElement("div");
+    comment.classList.add("forum-comment");
+    
+    // Create LostTransmission message
+    let message = document.createElement("p");
+    message.innerHTML = `<strong>LostTransmission:</strong> "She said too much."`;
+    
+    // Create secret message container
+    let secretMessage = document.createElement("p");
+    secretMessage.classList.add("secret-glitch-text");
+    
+    comment.appendChild(message);
+    comment.appendChild(secretMessage);
+    document.body.appendChild(comment);
+
+    // Secret message reveal effect
+    let hiddenText = "wafsA euR"; // "Rue Asfaw" backward
+    let displayedText = "";
+    let index = 0;
+
+    function revealText() {
+        if (index < hiddenText.length) {
+            let randomGlitchChar = ["#", "@", "%", "&", "?", "!", "~", "╳", "∆"][Math.floor(Math.random() * 8)];
+            displayedText += Math.random() > 0.5 ? hiddenText[index] : randomGlitchChar; // 50% chance to glitch
+            secretMessage.innerText = displayedText;
+
+            index++;
+            setTimeout(revealText, Math.random() * (250 - 100) + 100); // Random delay between 100ms - 250ms
+        } else {
+            secretMessage.innerText = hiddenText; // Set final text
+        }
+    }
+
+    setTimeout(revealText, 2000); // Delay the reveal by 2 seconds
+}, 10000); // Appears after 10 seconds

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>████████</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: #0a0a0a;
+            color: #b3b3b3;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hidden-container {
+            max-width: 700px;
+            margin: auto;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            filter: blur(10px);
+            text-align: left;
+            pointer-events: none;
+        }
+
+        .glitch-text {
+            display: inline-block;
+            animation: glitch 3s infinite alternate;
+            color: #ff4444;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px #ff4444; }
+            50% { text-shadow: -2px -2px 5px #ff2222; }
+            100% { text-shadow: 2px -2px 5px #ff4444; }
+        }
+
+        .corrupt {
+            color: #0a0a0a;
+            transition: color 0.5s ease-in-out;
+        }
+
+        .corrupt:hover {
+            color: #b3b3b3;
+        }
+
+        .flicker {
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .password-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #passwordInput {
+            background: #0a0a0a;
+            color: #ff4444;
+            border: 1px solid #ff4444;
+            padding: 8px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .secret-link {
+            display: none;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .reveal:hover + .secret-link {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="password-container">
+        <p>Enter Access Code:</p>
+        <input type="password" id="passwordInput" placeholder="••••••••">
+        <button onclick="checkPassword()">Unlock</button>
+        <p id="error-message" style="color: red; display: none;">ACCESS DENIED</p>
+    </div>
+
+    <div class="hidden-container" id="hiddenContent">
+        <h2 class="glitch-text">The Chant of ████████</h2>
+
+        <p class="corrupt">(A faint hum rises. A distant echo, like a █████ pulling taut.)</p>
+        <p>You fall, but you cannot rest.</p>
+        <p class="flicker">You shatter, but the ███████ remain.</p>
+        <p class="corrupt">The thread frays, but will not sever.</p>
+
+        <p class="corrupt">So ████.</p>
+        <p>Rise, though the weight is heavy.</p>
+        <p class="flicker">Rise, though the dark calls you █████.</p>
+        <p class="corrupt">Rise, because she is waiting.</p>
+
+        <p class="corrupt">(A low, resonant sound—like breath returning, like ███ tightening its grip.)</p>
+    </div>
+
+    <p class="reveal">██████ ████?</p>
+    <p class="secret-link"><a href="index.html">Exit</a></p>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+            const hiddenContent = document.getElementById("hiddenContent");
+            const errorMessage = document.getElementById("error-message");
+
+            if (password === "fatesgrip") {
+                hiddenContent.style.opacity = "1";
+                hiddenContent.style.filter = "blur(0px)";
+                hiddenContent.style.pointerEvents = "auto";
+                errorMessage.style.display = "none";
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

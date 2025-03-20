@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restored Archive - Lost/Thread</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="archive-script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        /* General Page Styling */
+        body {
+            background: #0a0a0a url('assets/static-dark.gif') repeat;
+            color: #d1d1d1;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Broken Header */
+        .header-container {
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid red;
+            filter: blur(1px) contrast(1.2);
+            animation: glitch 3s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { transform: skewX(0deg); }
+            25% { transform: skewX(5deg); }
+            50% { transform: skewX(-3deg); }
+            100% { transform: skewX(0deg); }
+        }
+
+        .header-container h1 {
+            color: #ff4444;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.9);
+        }
+
+        /* Corrupted Text Effect */
+        .corrupt {
+            display: inline-block;
+            font-size: 1.2em;
+            color: #666;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .corrupt:hover {
+            color: #ff4444;
+            text-shadow: 0 0 8px rgba(255, 68, 68, 0.9);
+        }
+
+        /* Glitched Content */
+        .glitched-content {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #ff4444;
+            border-radius: 10px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        /* Random Text Corruption */
+        .glitch-text {
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Static Overlay */
+        .static-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/static-glitch.gif');
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="static-overlay"></div>
+    
+    <div class="header-container">
+        <h1>Restored Archive - Lost/Thread</h1>
+        <p>**Recovered Data: <span class="corrupt">[REDACTED]</span>**</p>
+    </div>
+    
+    <div class="glitched-content">
+        <p class="glitch-text">**Log Entry - Date Unknown**</p>
+        <p class="corrupt">█▓▒░ERROR░▒▓█: Memory address corrupt. Data loss detected.</p>
+        <p class="glitch-text">The fragments remain, but the whole is lost. **She is missing.**</p>
+        <p class="corrupt">ACCESS DENIED: User <span class="corrupt">[USERNAME NOT FOUND]</span> attempted retrieval.</p>
+        <p class="glitch-text">Where is the last known **thread**?</p>
+        <p class="glitch-text">Where is▓▒░EROR░▒▓█ **thread**?</p>
+        <p class="glitch-text">Where is the last known **thread**?</p>
+        <p class="glitch-text">Where is the las█▓▒░ERROR░▒▓█*thread**?</p>
+        <p class="glitch-text">Where is the last known **thread**?</p>
+        <p class="glitch-text">Where is the last known **thread**?</p>
+        <div class="log-entry">
+          <a href="poem.html"><p class="glitch-text">█▓▒░RESTORED LOG░▒▓█</p></a>
+        <p class="glitch-text">Where i█▓▒░ERROR░▒▓█thread**?</p>
+        <p class="glitch-text">Where is the last known **thread**?</p>
+        <p class="glitch-text">Where is the las█▓▒░ERROR░▒▓█hread**?</p>
+        <p class="glitch-text">Wher█▓▒░ERROR░▒▓█he last█▓▒░ERROR░▒▓█**?</p>
+        <a href="Lost.html"><p class="glitch-text">█▓▒░Lost Pages░▒▓█</p></a>
+    
+
+
+        
+    </div>
+
+    <script>
+        // Random text flicker effect
+        function applyGlitchEffect() {
+            let elements = document.querySelectorAll(".corrupt");
+            let glitchChars = ['#', '@', '%', '&', '?', '!', '~', '█', '▓', '▒', '░'];
+            elements.forEach(el => {
+                let originalText = el.innerText;
+                let tempText = originalText.split("");
+                tempText.forEach((char, index) => {
+                    if (Math.random() > 0.7) {
+                        tempText[index] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                    }
+                });
+                el.innerText = tempText.join("");
+                setTimeout(() => {
+                    el.innerText = originalText;
+                }, 500);
+            });
+        }
+
+        setInterval(applyGlitchEffect, 2000);
+    </script>
+</body>
+</html>

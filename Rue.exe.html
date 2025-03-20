@@ -6,6 +6,101 @@
     <title>Must I Show You Again?</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="rue-script.js"></script> <!-- JavaScript for hidden effects -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: black;
+            color: #b3b3b3;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Static Noise Overlay */
+        #static-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/static-glitch.gif');
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Glitched Header */
+        .header-container h1 {
+            font-size: 2.5em;
+            color: #ff4444;
+            text-shadow: 0 0 15px rgba(255, 99, 71, 0.9);
+            animation: glitch-effect 2s infinite alternate;
+            margin-bottom: 5px;
+        }
+
+        @keyframes glitch-effect {
+            0% { text-shadow: 2px 2px 5px #ff4444; }
+            50% { text-shadow: -2px -2px 5px #ff2222; }
+            100% { text-shadow: 2px -2px 5px #ff4444; }
+        }
+
+        /* Infinite Scrolling Text */
+        .infinite-text {
+            height: 50vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glitch-text {
+            font-size: 1.5em;
+            color: #ff4444;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.9);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* Hidden Message */
+        .hidden-glitch {
+            display: none;
+            font-size: 1.2em;
+            color: #ff2222;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.9);
+            margin-top: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Corrupted Hidden URL */
+        .corrupt-link {
+            color: black;
+            background: black;
+            text-decoration: none;
+            pointer-events: none;
+            transition: all 2s ease-in-out;
+        }
+
+        .corrupt-link:hover {
+            color: #ff4444;
+            background: transparent;
+            pointer-events: all;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="rue-page">
 
@@ -24,9 +119,6 @@
         <p class="glitch-text">"Must I show you again?"</p>
         <p class="glitch-text">"Must I show you again?"</p>
         <p class="glitch-text">"Must I show you again?"</p>
-        <p class="glitch-text">"Must I show you again?"</p>
-        <p class="glitch-text">"Must I show you again?"</p>
-        <p class="glitch-text">"Must I show you again?"</p>
         <p class="glitch-text"><span class="hidden-message">"This is not the first time."</span></p>
         <p class="glitch-text">"Must I show you again?"</p>
     </div>
@@ -37,7 +129,22 @@
         <p>"She remembers."</p>
         <p>"Look behind you."</p>
         <p>"This is not the first time."</p>
+        <p><a href="restored-archive-page.html" class="corrupt-link">███r██e██t██r██i██e██ve███</a></p>
     </div>
+
+    <script>
+        // Delayed Appearance of Hidden Message
+        setTimeout(() => {
+            document.getElementById("hidden-message").style.display = "block";
+        }, 15000); // 15 seconds before it appears
+
+        // Make Link Visible When Highlighted
+        document.querySelector('.corrupt-link').addEventListener('mouseover', function() {
+            this.style.color = "#ff4444";
+            this.style.background = "transparent";
+            this.style.pointerEvents = "all";
+        });
+    </script>
 
 </body>
 </html>

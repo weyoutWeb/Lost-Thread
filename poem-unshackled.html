@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>████████</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: #0a0a0a;
+            color: #b3b3b3;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .password-container {
+            margin-top: 50px;
+        }
+
+        input[type="password"] {
+            background: black;
+            border: none;
+            color: #ff4444;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            outline: none;
+            width: 200px;
+        }
+
+        .hidden-container {
+            max-width: 700px;
+            margin: auto;
+            opacity: 0;
+            filter: blur(10px);
+            text-align: left;
+            transition: opacity 3s ease-in-out, filter 3s ease-in-out;
+            display: none;
+        }
+
+        .glitch-text {
+            display: inline-block;
+            animation: glitch 3s infinite alternate;
+            color: #ff4444;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px #ff4444; }
+            50% { text-shadow: -2px -2px 5px #ff2222; }
+            100% { text-shadow: 2px -2px 5px #ff4444; }
+        }
+
+        .corrupt {
+            color: #0a0a0a;
+            transition: color 0.5s ease-in-out;
+        }
+
+        .corrupt:hover {
+            color: #b3b3b3;
+        }
+
+        .flicker {
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <p>Enter Access Key:</p>
+        <input type="password" id="password" placeholder="████████">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div class="hidden-container" id="poemContainer">
+        <h2 class="glitch-text">The Price of ████████</h2>
+        
+        <p class="corrupt">It was never meant to be █████, yet you bear it.</p>
+        <p>You rise where others have ██████.</p>
+        <p class="flicker">Again. And again. And again.</p>
+        <p class="corrupt">The thread does not break. The story does not end.</p>
+        <p>The weight must be carried forward.</p>
+        
+        <p class="corrupt">Forgive me.</p>
+        <p>I wove this ████ with steady hands.</p>
+        <p class="flicker">I bound you to a path with no door, no mercy.</p>
+        <p class="corrupt">I took your choice so you could unmake ours.</p>
+        <p>And for that, I grieve.</p>
+        
+        <p class="corrupt">But you are defiance, forged in fire.</p>
+        <p>A hand that will sever what others could not.</p>
+        <p class="flicker">A name that will not be swallowed.</p>
+        
+        <p class="corrupt">Rise.</p>
+        <p>Rise, for the world will not release you.</p>
+        <p class="flicker">Rise, until the lock is shattered.</p>
+        <p class="corrupt">Rise, until the last thread frays.</p>
+        <p>Rise, for that is your curse.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const passwordInput = document.getElementById("password").value.toLowerCase();
+            const correctPassword = "unshackled";
+            
+            if (passwordInput === correctPassword) {
+                document.querySelector(".password-container").style.display = "none";
+                const poemContainer = document.getElementById("poemContainer");
+                poemContainer.style.display = "block";
+                setTimeout(() => {
+                    poemContainer.style.opacity = "1";
+                    poemContainer.style.filter = "blur(0px)";
+                }, 500);
+            } else {
+                alert("Access Denied.");
+            }
+        }
+    </script>
+</body>
+</html>

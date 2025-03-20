@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>████████</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: #0a0a0a;
+            color: #b3b3b3;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hidden-container {
+            max-width: 700px;
+            margin: auto;
+            opacity: 0.2;
+            transition: opacity 2s ease-in-out;
+            filter: blur(5px);
+            text-align: left;
+        }
+
+        .hidden-container:hover {
+            opacity: 1;
+            filter: blur(0px);
+        }
+
+        .glitch-text {
+            display: inline-block;
+            animation: glitch 3s infinite alternate;
+            color: #ff4444;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px #ff4444; }
+            50% { text-shadow: -2px -2px 5px #ff2222; }
+            100% { text-shadow: 2px -2px 5px #ff4444; }
+        }
+
+        .corrupt {
+            color: #0a0a0a;
+            transition: color 0.5s ease-in-out;
+        }
+
+        .corrupt:hover {
+            color: #b3b3b3;
+        }
+
+        .flicker {
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .secret-link {
+            display: none;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .reveal:hover + .secret-link {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden-container">
+        <h2 class="glitch-text">The Weight of ████████</h2>
+        
+        <p class="corrupt">They whisper the ██████, but never the cost—</p>
+        <p>A woman █████ forward, a man watches, lost.</p>
+        <p class="flicker">She is the offering, the thread pulled tight,</p>
+        <p class="corrupt">He is the witness, bound to the ████████.</p>
+        
+        <p class="corrupt">She walks where the road unravels the known,</p>
+        <p>A ███ in her hands that was never her own.</p>
+        <p class="flicker">He stands at the threshold, swearing to stay,</p>
+        <p class="corrupt">But the road does not take men that way.</p>
+        
+        <p class="corrupt">They carve out her name in the ████████ of the land,</p>
+        <p>She is the bridge, the wound, the brand.</p>
+        <p class="flicker">He calls to the void, but the void does not weep,</p>
+        <p class="corrupt">It leaves him to linger, to wake but not sleep.</p>
+        
+        <p class="corrupt">They say it’s a balance— a rule, a design,</p>
+        <p>A woman must ████ so a man stays behind.</p>
+        <p class="flicker">To wonder, to hunger, to search without end,</p>
+        <p class="corrupt">Chasing the echo of where she had been.</p>
+        
+        <p class="corrupt">The cycle repeats, the needle still threads,</p>
+        <p>One must be taken, one must be left.</p>
+        <p class="flicker">Not choice, nor chance, nor cruelty’s demand—</p>
+        <p class="corrupt">But the way of the world, the weight of a man.</p>
+    </div>
+    
+    <p class="reveal">██████ ████?</p>
+    <p class="secret-link"><a href="index.html">Exit</a></p>
+</body>
+</html>

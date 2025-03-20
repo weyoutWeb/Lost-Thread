@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanctuary</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: black;
+            color: #ff0000;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: glitchBg 2s infinite alternate ease-in-out;
+        }
+
+        /* Subtle Background Animation */
+        @keyframes glitchBg {
+            0% { background: radial-gradient(circle, black 30%, darkred 70%, black 100%); }
+            50% { background: radial-gradient(circle, black 20%, red 80%, black 110%); }
+            100% { background: radial-gradient(circle, black 10%, darkred 90%, black 120%); }
+        }
+
+        /* Glitched Text Effect */
+        .glitch-text {
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 4px 4px 10px darkred;
+            animation: glitchEffect 0.3s infinite alternate ease-in-out;
+        }
+
+        @keyframes glitchEffect {
+            0% { transform: skewX(-5deg); text-shadow: -2px -2px 10px red; }
+            50% { transform: skewX(5deg); text-shadow: 2px 2px 10px darkred; }
+            100% { transform: skewX(-5deg); text-shadow: -2px -2px 10px red; }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glitch-text">There is no sanctuary.</h1>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "defy.html";
+        }, 10000); // Redirects after 10 seconds
+    </script>
+</body>
+</html>

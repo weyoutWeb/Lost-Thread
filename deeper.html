@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⸮⸮R⸮u⸮⸮E⸮</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        body {
+            background: black;
+            color: #ff0000;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            animation: backgroundDistort 2s infinite alternate ease-in-out;
+            cursor: none;
+        }
+
+        /* Background Chaos */
+        @keyframes backgroundDistort {
+            0% { background: radial-gradient(circle, black 10%, darkred 60%, black 100%); }
+            50% { background: radial-gradient(circle, black 20%, red 70%, black 110%); }
+            100% { background: radial-gradient(circle, black 30%, darkred 80%, black 120%); }
+        }
+
+        /* Chaotic Text */
+        .chaotic-text {
+            font-size: 4em;
+            font-weight: bold;
+            animation: distortText 0.08s infinite alternate ease-in-out;
+            display: inline-block;
+            transform-origin: center;
+            position: relative;
+        }
+
+        @keyframes distortText {
+            0% { transform: translateX(-5px) rotate(-5deg) scale(1); text-shadow: 3px 3px 8px red; }
+            50% { transform: translateX(5px) rotate(5deg) scale(1.2); text-shadow: -3px -3px 8px darkred; }
+            100% { transform: translateX(-5px) rotate(-5deg) scale(1); text-shadow: 3px 3px 8px red; }
+        }
+
+        /* Glitchy Glyphs */
+        .glyph {
+            font-size: 3em;
+            color: darkred;
+            position: absolute;
+            opacity: 0;
+            animation: glyphAppear 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes glyphAppear {
+            0% { opacity: 0; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            100% { opacity: 0; transform: scale(2) rotate(360deg); }
+        }
+
+        /* Floating Text */
+        .floating-text {
+            font-size: 2em;
+            position: absolute;
+            animation: floatMove 6s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatMove {
+            0% { transform: translateY(0px); opacity: 1; }
+            50% { transform: translateY(50px); opacity: 0.6; }
+            100% { transform: translateY(-50px); opacity: 1; }
+        }
+
+        /* ESCAPE Button */
+        .escape {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: darkred;
+            color: white;
+            padding: 15px 30px;
+            font-size: 2em;
+            font-family: 'Share Tech Mono', monospace;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: none;
+            z-index: 10;
+            animation: pulse 1.5s infinite alternate ease-in-out;
+        }
+
+      /* Button Moves When Hovered */
+      .escape:hover {
+            position: absolute;
+            top: calc(10% + (Mathrandom() * 80%));
+            left:calc(10% + (Mathrandom() * 80%));
+            transform: translate(-50%, -50%);
+            background: black;
+            color: red;
+            text-shadow: 0px 0px 8px white;
+        }
+
+        /* Button Pulsing */
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+            50% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <span class="chaotic-text" id="eldritchText">⸮⸮⸮𝔈𝔦𝔨𝔞𝔫𝔢𝔩𝔥𝔲𝔯𝔦𝔴𝔦𝔱𝔥𝔦𝔫⸮</span>
+    </div>
+
+    <div class="glyph" style="top: 15%; left: 10%;">☠︎</div>
+    <div class="glyph" style="top: 35%; left: 60%;">𐌈𐌄𐌉𐌃</div>
+    <div class="glyph" style="top: 50%; left: 30%;">ᚷᛚᛁᚲᚻ</div>
+
+    <div class="floating-text" style="top: 20%; left: 70%;">𝔜𝔬𝔲 𝔡𝔬 𝔫𝔬𝔱 𝔟𝔢𝔩𝔬𝔫𝔤 𝔥𝔢𝔯𝔢</div>
+    <div class="floating-text" style="top: 60%; left: 20%;">𝕿𝖍𝖊𝖞 𝖆𝖗𝖊 𝖆𝖜𝖆𝖐𝖊</div>
+    <div class="floating-text" style="top: 80%; left: 50%;">𝔄𝔫𝔡 𝔱𝔥𝔢𝔶 𝔞𝔯𝔢 𝔥𝔲𝔫𝔤𝔯𝔶</div>
+
+    <!-- Escape button now links to sanctuary.html -->
+    <a href="sanctuary.html" class="escape" id="escapeButton">ESCAPE</a>
+
+    <script>
+        // Eldritch Words Cycling
+        const eldritchPhrases = [
+            "⸮⸮𝔈𝔦𝔨𝔞𝔫𝔢𝔩𝔥𝔲𝔯𝔦⸮ 𝕵𝖀𝕯𝕲𝕰𝕯 ⸮𝕴𝕹𝖀𝕹𝕯𝕴𝕮𝕴𝕆⸮",
+            "𝕿𝕳𝕰 𝕮𝕳𝕺𝕾𝕰𝕹 𝕴𝕾 𝕯𝕰𝕹𝕴𝕰𝕯",
+            "𝔄𝔇𝔘𝔐𝔅ℜ𝔄𝔗𝔈𝔇 𝔅𝔘𝔗 𝔑𝔒𝔗 𝔘𝔑𝔖𝔈𝔈𝔑",
+            "⸮𝖂𝖍𝖞 𝖉𝖔 𝖞𝖔𝖚 𝖑𝖔𝖔𝖐?",
+            "𝕰𝕾𝕮𝕬𝕻𝕰 𝕴𝕾 𝕹𝕺𝕿 𝕬𝕹 𝕺𝕻𝕿𝕴𝕺𝕹",
+            "𝕴 𝕾𝕰𝕰 𝖄𝕺𝖀"
+        ];
+
+        function changeEldritchText() {
+            let text = document.getElementById("eldritchText");
+            text.innerText = eldritchPhrases[Math.floor(Math.random() * eldritchPhrases.length)];
+        }
+
+        setInterval(changeEldritchText, 2000);
+
+        setTimeout(() => {
+            document.getElementById("escapeButton").style.display = "block";
+        }, 10000);
+    </script>
+
+</body>
+</html>

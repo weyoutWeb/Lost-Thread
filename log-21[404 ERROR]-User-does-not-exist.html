@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 ERROR - User Does Not Exist</title>
+  <title>Fragmented Message</title>
   <meta name="description" content="A fragmented message from an unknown user.">
   <link rel="stylesheet" href="styles.css">
   <script defer src="scripts.js"></script>
@@ -83,13 +83,32 @@
       margin-top: 50px;
       color: #ff4444;
     }
+
+    /* Hidden Link Effect */
+    .hidden-link {
+      display: inline-block;
+      color: black;
+      background: black;
+      text-decoration: none;
+      pointer-events: none;
+      transition: color 3s ease-in-out, background 3s ease-in-out;
+      font-size: 0.9em;
+    }
+
+    .hidden-link:hover {
+      color: #ff4444;
+      background: transparent;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
 
   <!-- 📡 Transmission Header -->
   <div class="header-container">
-    <h1>🔍 Fragmented Message – Transmission Unstable</h1>
+    <h1 class="glitch-title" id="glitchTitle">Fragmented Message</h1>
     <p><strong>USER:</strong> [UNKNOWN] | <strong>LAST SEEN:</strong> [???]</p>
   </div>
 
@@ -108,13 +127,14 @@
     <p>"Or maybe they do, just... not as <span class="redacted">[themselves]</span>."</p>
     <p>"I don’t know what’s waiting for me at the end of this, but <span class="redacted">[I can’t stop it]</span>."</p>
     <p>"And <span class="redacted">[I don’t think I want to]</span>."</p>
-    <p><strong>[DATA CONNECTION LOST]</strong></p>
-</div>
+    <p id="dataLost"><strong>[DATA CONNECTION LOST]</strong></p>
   </div>
 
   <!-- 🔥 Attempt to Recover Data -->
-  <button class="recover-button" onclick="recoverData()">Attempt to Recover Data</button>
-  <p id="glitch-message" class="glitch-message">DONT LET HER GO! DONT LET HER GO!.</p>
+  <button class="recover-button" onclick="window.location.href='restored-archive-page.html'">
+    Attempt to Recover Data
+</button>
+<p id="glitch-message" class="glitch-message">DONT LET HER GO! DONT LET HER GO!.</p>
 
   <!-- 🕵️ Hidden Clues & Page Effects -->
   <script>
@@ -137,19 +157,21 @@
       }
     });
 
-    // Hidden comment appears later
-    setTimeout(() => {
-      let comment = document.createElement("div");
-      comment.innerHTML = `
-        <div class="forum-comment">
-          <p><strong>LostTransmission:</strong> "She said too much."</p>
-        </div>
-      `;
-      document.body.appendChild(comment);
-    }, 10000); // Appears after 10 seconds
-  </script>
+    // Reveal the hidden link when hovering over "[DATA CONNECTION LOST]"
+    document.addEventListener("DOMContentLoaded", function() {
+      const dataLost = document.getElementById("dataLost");
+      const hiddenLink = document.createElement("a");
+      hiddenLink.href = "restored-archive-page.html";
+      hiddenLink.innerText = "restored-archive-page";
+      hiddenLink.classList.add("hidden-link");
 
-  <a href="index.html" class="back-button">Back to Home</a>
+      dataLost.addEventListener("mouseover", function() {
+        this.innerHTML = "";
+        this.appendChild(hiddenLink);
+      });
+    });
+
+  </script>
 
 </body>
 </html>
